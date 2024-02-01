@@ -8,17 +8,19 @@ export const Code = () => {
   return (
     <section className="flex gap-[30px]">
       <Aside />
-      <section className="py-[30px] pr-[20px] h-[100vh] flex-1">
-        <div className="h-full bg-[#191919] overflow-auto no-scrollbar rounded-[30px] p-[30px]">
+      <section className="py-[30px] lg:h-[unset] lg:pl-[20px] pr-[20px] h-[100vh] flex-1">
+        <div className="h-full bg-[#191919] overflow-auto no-scrollbar rounded-[30px] p-[30px] lg:h-[unset]">
           <header className="flex items-center justify-between">
-            <h1 className="text-[32px] text-[#fff] font-bold">Code Audit</h1>
+            <h1 className="text-[32px] text-[#fff] font-bold sm:text-[20px]">
+              Code Audit
+            </h1>
 
             <nav className="flex items-center">
-              <a href="#" className="mr-[30px]">
+              <a href="#" className="mr-[30px]  sm:hidden">
                 <img src={notify} alt="" />
               </a>
               <div className="flex items-center gap-[10px]">
-                <div className="text-right">
+                <div className="text-right  sm:hidden">
                   <h1 className="text-[#fff] text-[18px] font-bold">
                     John Kit
                   </h1>
@@ -29,12 +31,29 @@ export const Code = () => {
                 <div className="flex items-center">
                   <img src={avatar} alt="" />
                   <img src={arrow} alt="" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="#fff"
+                    className="w-6 h-6 hidden xl:block"
+                    onClick={(e) => {
+                      document
+                        .querySelector(".aside-custom")
+                        .classList.toggle("active");
+                    }}
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
             </nav>
           </header>
-          <div className="grid grid-cols-3 gap-[25px] mt-[25px]">
-            <div className="col-span-2 bg-[#323233] rounded-[20px] p-[20px]">
+          <div className="grid grid-cols-3 gap-[25px] mt-[25px] lg:grid-cols-1">
+            <div className="col-span-2 bg-[#323233] rounded-[20px] p-[20px] lg:col-span-1">
               <h1 className="text-[24px] font-bold text-[#fff]">
                 Contract code
               </h1>

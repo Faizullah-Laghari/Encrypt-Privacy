@@ -10,19 +10,21 @@ import arrowBottom from "../assets/img/token/arrow-bottom.svg";
 import { Link } from "react-router-dom";
 export const TokenCode = () => {
   return (
-    <section className="flex gap-[30px]">
+    <section className="flex gap-[30px] lg:block">
       <Aside />
-      <section className="py-[30px] pr-[20px] h-[100vh] flex-1">
-        <div className="h-full bg-[#191919] overflow-auto no-scrollbar rounded-[30px] p-[30px]">
+      <section className="py-[30px] lg:h-[unset] lg:pl-[20px] pr-[20px] h-[100vh] flex-1">
+        <div className="h-full bg-[#191919] overflow-auto no-scrollbar rounded-[30px] p-[30px] lg:h-[unset]">
           <header className="flex items-center justify-between">
-            <h1 className="text-[32px] text-[#fff] font-bold">Audit Details</h1>
+            <h1 className="text-[32px] text-[#fff] font-bold sm:text-[20px]">
+              Audit Details
+            </h1>
 
             <nav className="flex items-center">
-              <a href="#" className="mr-[30px]">
+              <a href="#" className="mr-[30px] lg:hidden">
                 <img src={notify} alt="" />
               </a>
               <div className="flex items-center gap-[10px]">
-                <div className="text-right">
+                <div className="text-right sm:hidden">
                   <h1 className="text-[#fff] text-[18px] font-bold">
                     John Kit
                   </h1>
@@ -33,6 +35,23 @@ export const TokenCode = () => {
                 <div className="flex items-center">
                   <img src={avatar} alt="" />
                   <img src={arrow} alt="" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="#fff"
+                    className="w-6 h-6 hidden xl:block"
+                    onClick={(e) => {
+                      document
+                        .querySelector(".aside-custom")
+                        .classList.toggle("active");
+                    }}
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
             </nav>
@@ -42,258 +61,259 @@ export const TokenCode = () => {
               <h1 class="text-[24px] font-bold text-[#fff]">Token Audit</h1>
               <img src={arrowToken} alt="" />
             </div>
-            <div class="flex items-center justify-between py-[20px]">
+            <div class="flex items-center justify-between py-[20px] md:flex-col md:items-start md:gap-2">
               <div class="flex items-center gap-[15px]">
                 <img src={encr} alt="" />
                 <h1 class="text-[24px] font-bold text-[#fff]">ENCR</h1>
               </div>
-              <div class="flex items-center bg-[#000207] p-[5px] rounded-[10px] gap-[5px]">
+              <div class="flex sm:flex-col items-center bg-[#000207] p-[5px] rounded-[10px] gap-[5px] sm:w-full">
                 <Link
                   to="/token-overview"
                   class="font-montserrat text-[16px] text-[#7F8083] bg-[#323233]
-                  
+                  sm:w-full
                 rounded-[5px] w-[116px] h-[30px] flex items-center justify-center "
                 >
                   Overview
                 </Link>
                 <Link
                   to="/token-code"
-                  class="font-montserrat text-[16px] btn-gradient text-[#fff] rounded-[5px] w-[116px] h-[30px] flex items-center justify-center"
+                  class="font-montserrat text-[16px] btn-gradient text-[#fff] rounded-[5px] w-[116px] h-[30px] flex items-center justify-center  sm:w-full"
                 >
                   Code
                 </Link>
                 <Link
                   to="/token-functions"
-                  class="font-montserrat text-[16px] text-[#7F8083] bg-[#323233] rounded-[5px] w-[116px] h-[30px] flex items-center justify-center"
+                  class="font-montserrat text-[16px] text-[#7F8083] bg-[#323233] rounded-[5px] w-[116px] h-[30px] flex items-center justify-center  sm:w-full"
                 >
                   Functions
                 </Link>
                 <Link
                   to="/token"
-                  class="font-montserrat text-[16px] text-[#7F8083] bg-[#323233] rounded-[5px] w-[116px] h-[30px] flex items-center justify-center"
+                  class="font-montserrat text-[16px] text-[#7F8083] bg-[#323233] rounded-[5px] w-[116px] h-[30px] flex items-center justify-center  sm:w-full"
                 >
                   Dependency
                 </Link>
               </div>
             </div>
 
-            <div class="grid grid-cols-[1fr_333px] gap-[25px] mt-[25px]">
+            <div class="grid grid-cols-[1fr_333px] gap-[25px] mt-[25px] lg:grid-cols-1">
               <div class="bg-[#323233] rounded-[20px] p-[20px]">
                 <h1 class="text-[24px] font-bold text-[#fff]">
                   ENCR Monitoring (Refresh To See Correct Info)
                 </h1>
-
-                <table class="w-full mt-[20px]">
-                  <thead>
-                    <tr class="bg-[#19191A] h-[50px]">
-                      <td class="pl-[15px] w-[310px]">
-                        <div class="flex items-center gap-2">
-                          <img src={arrowBottom} alt="" />
-                          <p class="text-[16px] text-[#fff] font-medium font-montserrat">
-                            Call Tree
+                <div className="overflow-auto">
+                  <table class="w-full mt-[20px] lg:min-w-[1000px]">
+                    <thead>
+                      <tr class="bg-[#19191A] h-[50px]">
+                        <td class="pl-[15px] w-[310px]">
+                          <div class="flex items-center gap-2">
+                            <img src={arrowBottom} alt="" />
+                            <p class="text-[16px] text-[#fff] font-medium font-montserrat">
+                              Call Tree
+                            </p>
+                          </div>
+                        </td>
+                        <td class="pl-[15px]">
+                          <div class="flex items-center gap-2">
+                            <p class="text-[16px] text-[#fff] font-medium font-montserrat">
+                              Contract code
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          ENCR Token (Contract)
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">
+                            1 '@
+                            <span class="text-[#2188E8]">
+                              atlaskit/dropdown-menu';
+                            </span>
                           </p>
-                        </div>
-                      </td>
-                      <td class="pl-[15px]">
-                        <div class="flex items-center gap-2">
-                          <p class="text-[16px] text-[#fff] font-medium font-montserrat">
-                            Contract code
-                          </p>
-                        </div>
-                      </td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        ENCR Token (Contract)
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">
-                          1 '@
-                          <span class="text-[#2188E8]">
-                            atlaskit/dropdown-menu';
-                          </span>
-                        </p>
-                      </td>
-                    </tr>
+                        </td>
+                      </tr>
 
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        total Supply [Ext]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">
-                          2 '@atlaskit/icon/glyph/media-services/add-comment';
-                        </p>
-                      </td>
-                    </tr>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        get Deploment Start time[Ext]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">
-                          3
-                          <span class="text-[#2188E8]">
-                            import
-                            <span class="text-[#EA6130]">
-                              Button from '@atlaskit/button/standard-button';
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          total Supply [Ext]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">
+                            2 '@atlaskit/icon/glyph/media-services/add-comment';
+                          </p>
+                        </td>
+                      </tr>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          get Deploment Start time[Ext]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">
+                            3
+                            <span class="text-[#2188E8]">
+                              import
+                              <span class="text-[#EA6130]">
+                                Button from '@atlaskit/button/standard-button';
+                              </span>
                             </span>
-                          </span>
-                        </p>
-                      </td>
-                    </tr>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        get Lp Rewards Entitlement [Ext]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">
-                          4
-                          <span class="text-[#2188E8]">
-                            import
-                            <span class="text-[#EA6130]">
-                              MediaServicesAddCommentIcon from
-                              '@atlaskit/icon/add-comment
+                          </p>
+                        </td>
+                      </tr>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          get Lp Rewards Entitlement [Ext]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">
+                            4
+                            <span class="text-[#2188E8]">
+                              import
+                              <span class="text-[#EA6130]">
+                                MediaServicesAddCommentIcon from
+                                '@atlaskit/icon/add-comment
+                              </span>
                             </span>
-                          </span>
-                        </p>
-                      </td>
-                    </tr>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        transfer [Ext]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">
-                          5
-                          <span class="text-[#2188E8]">
-                            import
-                            <span class="text-[#fff]">
-                              {"{(Box, xcss)} from '@atlaskit/primitives';"}
+                          </p>
+                        </td>
+                      </tr>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          transfer [Ext]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">
+                            5
+                            <span class="text-[#2188E8]">
+                              import
+                              <span class="text-[#fff]">
+                                {"{(Box, xcss)} from '@atlaskit/primitives';"}
+                              </span>
                             </span>
-                          </span>
-                        </p>
-                      </td>
-                    </tr>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        allowance[Ext]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">
-                          6
-                          <span class="text-[#2188E8]">
-                            import
-                            <span class="text-[#fff]">
-                              Popup from '@atlaskit/popup'
+                          </p>
+                        </td>
+                      </tr>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          allowance[Ext]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">
+                            6
+                            <span class="text-[#2188E8]">
+                              import
+                              <span class="text-[#fff]">
+                                Popup from '@atlaskit/popup'
+                              </span>
                             </span>
-                          </span>
-                        </p>
-                      </td>
-                    </tr>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        transfer Form[Ext]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">
-                          7
-                          <span class="text-[#2188E8]">
-                            import
-                            <span class="text-[#fff]">
-                              Form, {"{(Field, FormFooter, HelperMessage)}"}{" "}
-                              from '@atlaskit/form';
+                          </p>
+                        </td>
+                      </tr>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          transfer Form[Ext]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">
+                            7
+                            <span class="text-[#2188E8]">
+                              import
+                              <span class="text-[#fff]">
+                                Form, {"{(Field, FormFooter, HelperMessage)}"}{" "}
+                                from '@atlaskit/form';
+                              </span>
                             </span>
-                          </span>
-                        </p>
-                      </td>
-                    </tr>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        decrease Allowance[Ext]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">
-                          8
-                          <span class="text-[#2188E8]">
-                            import
-                            <span class="text-[#0FC06B]">
-                              TextArea from '@atlaskit/textarea';
+                          </p>
+                        </td>
+                      </tr>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          decrease Allowance[Ext]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">
+                            8
+                            <span class="text-[#2188E8]">
+                              import
+                              <span class="text-[#0FC06B]">
+                                TextArea from '@atlaskit/textarea';
+                              </span>
                             </span>
-                          </span>
-                        </p>
-                      </td>
-                    </tr>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        send To ENCR Staking[Ext]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">9 *</p>
-                      </td>
-                    </tr>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        domain Separator[Pub]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">10 *</p>
-                      </td>
-                    </tr>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        Permit[Ext]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">11 *</p>
-                      </td>
-                    </tr>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        nonces [Ext]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">
-                          12
-                          <span class="text-[#2188E8]">
-                            import
-                            <span class="text-[#fff]"> Form, </span>
-                            <span class="text-[#EA6130]">
-                              Form, {"{(Field, FormFooter, HelperMessage)}"}{" "}
-                              from '@atlaskit/form';
+                          </p>
+                        </td>
+                      </tr>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          send To ENCR Staking[Ext]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">9 *</p>
+                        </td>
+                      </tr>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          domain Separator[Pub]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">10 *</p>
+                        </td>
+                      </tr>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          Permit[Ext]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">11 *</p>
+                        </td>
+                      </tr>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          nonces [Ext]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">
+                            12
+                            <span class="text-[#2188E8]">
+                              import
+                              <span class="text-[#fff]"> Form, </span>
+                              <span class="text-[#EA6130]">
+                                Form, {"{(Field, FormFooter, HelperMessage)}"}{" "}
+                                from '@atlaskit/form';
+                              </span>
                             </span>
-                          </span>
-                        </p>
-                      </td>
-                    </tr>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        _chain ID[Prv]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">
-                          13
-                          <span class="text-[#2188E8]">
-                            import
-                            <span class="text-[#EA6130]">
-                              {"{(Box, xcss)}"} from '@atlaskit/primitives';
+                          </p>
+                        </td>
+                      </tr>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          _chain ID[Prv]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">
+                            13
+                            <span class="text-[#2188E8]">
+                              import
+                              <span class="text-[#EA6130]">
+                                {"{(Box, xcss)}"} from '@atlaskit/primitives';
+                              </span>
                             </span>
-                          </span>
-                        </p>
-                      </td>
-                    </tr>
-                    <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
-                      <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
-                        _build Domain Separator[Prv]
-                      </td>
-                      <td class="text-[16px] font-montserrat font-normal text-[#fff]">
-                        <p class="text-[#fff]">14 *</p>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr class="h-[50px] border-b-[1px] border-b-[#212224]">
+                        <td class="pl-[15px] text-[16px] text-[#fff] font-medium font-montserrat">
+                          _build Domain Separator[Prv]
+                        </td>
+                        <td class="text-[16px] font-montserrat font-normal text-[#fff]">
+                          <p class="text-[#fff]">14 *</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
 
               <div class="bg-[#323233] rounded-[20px] p-[20px] flex flex-col">

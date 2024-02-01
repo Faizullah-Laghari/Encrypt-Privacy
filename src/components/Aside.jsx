@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 export const Aside = () => {
   return (
-    <aside className="w-[260px] pl-[20px] py-[30px] h-[100vh] overflow-auto no-scrollbar">
+    <aside className="w-[260px] pl-[20px] py-[30px] h-[100vh] overflow-auto no-scrollbar xl:fixed xl:top-0 xl:z-50 xl:bg-[#000] xl:-left-[100%] aside-custom">
       <img src={logo} alt="" />
       <nav className="mt-[25px]">
         <Link

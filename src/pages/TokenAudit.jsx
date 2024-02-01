@@ -16,17 +16,19 @@ export const TokenAudit = () => {
   return (
     <section className="flex gap-[30px]">
       <Aside />
-      <section className="py-[30px] pr-[20px] h-[100vh] flex-1">
-        <div className="h-full bg-[#191919] overflow-auto no-scrollbar rounded-[30px] p-[30px]">
+      <section className="py-[30px] lg:h-[unset] lg:pl-[20px] pr-[20px] h-[100vh] flex-1">
+        <div className="h-full bg-[#191919] overflow-auto no-scrollbar rounded-[30px] p-[30px] lg:h-[unset]">
           <header className="flex items-center justify-between">
-            <h1 className="text-[32px] text-[#fff] font-bold">Audit</h1>
+            <h1 className="text-[32px] text-[#fff] font-bold sm:text-[20px]">
+              Audit
+            </h1>
 
             <nav className="flex items-center">
-              <a href="#" className="mr-[30px]">
+              <a href="#" className="mr-[30px] sm:hidden">
                 <img src={notify} alt="" />
               </a>
               <div className="flex items-center gap-[10px]">
-                <div className="text-right">
+                <div className="text-right sm:hidden">
                   <h1 className="text-[#fff] text-[18px] font-bold">
                     John Kit
                   </h1>
@@ -37,6 +39,23 @@ export const TokenAudit = () => {
                 <div className="flex items-center">
                   <img src={avatar} alt="" />
                   <img src={arrow} alt="" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="#fff"
+                    className="w-6 h-6 hidden xl:block"
+                    onClick={(e) => {
+                      document
+                        .querySelector(".aside-custom")
+                        .classList.toggle("active");
+                    }}
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
             </nav>
@@ -44,20 +63,20 @@ export const TokenAudit = () => {
           <div className="gap-[25px] mt-[25px]">
             <div className="bg-[#323233] rounded-[20px] p-[20px]">
               <div className="flex items-center justify-between">
-                <h1 className="text-[24px] font-bold text-[#fff]">
+                <h1 className="text-[24px]  font-bold text-[#fff]">
                   Token Audit
                 </h1>
                 <img src={arrowToken} className="rotate-180" alt="" />
               </div>
-              <div className="grid grid-cols-2 gap-2 mt-6">
+              <div className="grid grid-cols-2 gap-2 mt-6 lg:grid-cols-1">
                 <div className="bg-[#5D5E60] p-[20px] rounded-[20px]">
                   <div className="flex items-center gap-2">
                     <img src={token1} alt="" />
-                    <h1 className="text-[24px] font-bold text-[#fff]">
+                    <h1 className="text-[24px]  sm:text-[18px] font-bold text-[#fff]">
                       Token Auditor
                     </h1>
                   </div>
-                  <div className="p-[25px] bg-[#323233] rounded-[10px] mt-[15px] h-[286px] flex flex-col">
+                  <div className="p-[25px] bg-[#323233] rounded-[10px] mt-[15px] h-[286px] flex flex-col lg:h-[unset]">
                     <textarea
                       className="flex-1 bg-[transparent] resize-none text-[#7F8083] font-montserrat text-[16px] outline-none"
                       name=""
@@ -80,18 +99,18 @@ export const TokenAudit = () => {
                 <div className="bg-[#5D5E60] p-[20px] rounded-[20px]">
                   <div className="flex items-center gap-2">
                     <img src={token2} alt="" />
-                    <h1 className="text-[24px] font-bold text-[#fff]">
+                    <h1 className="text-[24px] font-bold text-[#fff] sm:text-[18px]">
                       Audit Report
                     </h1>
                   </div>
 
-                  <div className="p-[25px] bg-[#323233] rounded-[10px] mt-[15px] h-[286px] flex flex-col items-center justify-center">
+                  <div className="p-[25px] bg-[#323233] rounded-[10px] mt-[15px] h-[286px] flex flex-col items-center justify-center  lg:h-[unset]">
                     <p className="text-[18px] font-normal text-[#808083] text-center mb-[10px]">
                       A Comprehensive audit report that includes a detailed
                       analysis of the code, a list of all the vulnerabilities
                       found, and recommendations on how to fix then.
                     </p>
-                    <h1 className="text-[24px] font-bold text-[#fff] my-2 text-center">
+                    <h1 className="text-[24px]  sm:text-[18px] font-bold text-[#fff] my-2 text-center">
                       ULLOCK FULL AUDIT REPORT WITH PREMIUM
                     </h1>
                     <button className="text-[16px] font-montserrat font-normal w-[125px] h-[40px] rounded-[10px] text-[#fff] flex items-center justify-center gap-[10px] btn-gradient">
@@ -104,7 +123,7 @@ export const TokenAudit = () => {
             </div>
             <div className="bg-[#323233] rounded-[20px] p-[20px] flex flex-col items-center gap-2 mt-[25px]">
               <img src={tokenMain} alt="" />
-              <p className="text-[22px] font-bold text-[#fff]">
+              <p className="text-[22px] font-bold lg:text-center text-[#fff]">
                 Input token audit to see informations
               </p>
             </div>

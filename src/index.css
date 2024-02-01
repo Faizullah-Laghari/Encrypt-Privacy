@@ -31,3 +31,9 @@ body {
 .bg-liear2 {
   background: linear-gradient(90deg, #dcdcdc 0%, #696969 100%);
 }
+.aside-custom {
+  transition: 0.3s ease all;
+}
+.aside-custom.active {
+  left: 0%;
+}
