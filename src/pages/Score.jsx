@@ -8,7 +8,7 @@ import search from "../assets/img/security/search.svg";
 export const Score = () => {
   return (
     <section className="flex gap-[30px] lg:block">
-      <Aside />
+      <Aside active={6} />
       <section className="py-[30px] lg:h-[unset] lg:pl-[20px] pr-[20px] h-[100vh] flex-1">
         <div className="h-full bg-[#191919] overflow-auto no-scrollbar rounded-[30px] p-[30px] lg:h-[unset]">
           <header className="flex items-center justify-between">

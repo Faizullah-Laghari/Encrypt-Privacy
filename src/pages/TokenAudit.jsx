@@ -15,7 +15,7 @@ export const TokenAudit = () => {
   const navigate = useNavigate();
   return (
     <section className="flex gap-[30px]">
-      <Aside />
+      <Aside active={4} />
       <section className="py-[30px] lg:h-[unset] lg:pl-[20px] pr-[20px] h-[100vh] flex-1">
         <div className="h-full bg-[#191919] overflow-auto no-scrollbar rounded-[30px] p-[30px] lg:h-[unset]">
           <header className="flex items-center justify-between">
@@ -105,7 +105,7 @@ export const TokenAudit = () => {
                   </div>
 
                   <div className="p-[25px] bg-[#323233] rounded-[10px] mt-[15px] h-[286px] flex flex-col items-center justify-center  lg:h-[unset]">
-                    <p className="text-[18px] font-normal text-[#808083] text-center mb-[10px]">
+                    <p className="text-[18px] font-normal text-[#808083] text-center mb-[10px] flex-1">
                       A Comprehensive audit report that includes a detailed
                       analysis of the code, a list of all the vulnerabilities
                       found, and recommendations on how to fix then.

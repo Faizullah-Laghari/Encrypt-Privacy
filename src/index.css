@@ -37,3 +37,7 @@ body {
 .aside-custom.active {
   left: 0%;
 }
+
+.active-link svg path {
+  fill: #fff;
+}
