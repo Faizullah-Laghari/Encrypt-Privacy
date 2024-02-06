@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Aside } from "../components/Aside";
 import notify from "../assets/img/common/notify.svg";
 import avatar from "../assets/img/common/avatar.svg";
@@ -10,9 +10,28 @@ import arrowToken from "../assets/img/token/arrow.svg";
 import lock from "../assets/img/token/lock.svg";
 import tokenMain from "../assets/img/token/token-main.svg";
 import { useNavigate } from "react-router-dom";
-
 export const TokenAudit = () => {
+    const [data, setData] = useState('') 
+  const [address, setAddress] = useState(''); // State to store textarea value
   const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
+    const apiUrl = `https://api.gopluslabs.io/api/v1/token_security/1?contract_addresses=${address}`;
+
+    try {
+      const response = await fetch(apiUrl);
+      const jsonData = await response.json();
+      setData(Object.values(jsonData.result)[0])
+  
+
+      // navigate("/token-overview"); // Navigate after the API call
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   return (
     <section className="flex gap-[30px]">
       <Aside active={4} />
@@ -59,7 +78,7 @@ export const TokenAudit = () => {
                 </div>
               </div>
             </nav>
-          </header>
+ </header>
           <div className="gap-[25px] mt-[25px]">
             <div className="bg-[#323233] rounded-[20px] p-[20px]">
               <div className="flex items-center justify-between">
@@ -68,7 +87,7 @@ export const TokenAudit = () => {
                 </h1>
                 <img src={arrowToken} className="rotate-180" alt="" />
               </div>
-              <div className="grid grid-cols-2 gap-2 mt-6 lg:grid-cols-1">
+              <div className="grid grid-cols-1 gap-2 mt-6 lg:grid-cols-1">
                 <div className="bg-[#5D5E60] p-[20px] rounded-[20px]">
                   <div className="flex items-center gap-2">
                     <img src={token1} alt="" />
@@ -79,24 +98,21 @@ export const TokenAudit = () => {
                   <div className="p-[25px] bg-[#323233] rounded-[10px] mt-[15px] h-[286px] flex flex-col lg:h-[unset]">
                     <textarea
                       className="flex-1 bg-[transparent] resize-none text-[#7F8083] font-montserrat text-[16px] outline-none"
-                      name=""
                       placeholder="Enter contact address..."
-                      id=""
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)} // Update state when textarea changes
                       cols="30"
                       rows="10"
                     ></textarea>
                     <button
-                      onclick="location.href='./token-overview.html'"
                       className="text-[16px] font-montserrat font-normal w-[100px] h-[40px] rounded-[10px] text-[#fff] ml-auto btn-gradient"
-                      onClick={(e) => {
-                        navigate("/token-overview");
-                      }}
+                      onClick={handleSubmit} // Handle form submission
                     >
                       Submit
                     </button>
                   </div>
                 </div>
-                <div className="bg-[#5D5E60] p-[20px] rounded-[20px]">
+                {/* <div className="bg-[#5D5E60] p-[20px] rounded-[20px]">
                   <div className="flex items-center gap-2">
                     <img src={token2} alt="" />
                     <h1 className="text-[24px] font-bold text-[#fff] sm:text-[18px]">
@@ -118,13 +134,13 @@ export const TokenAudit = () => {
                       Locked
                     </button>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="bg-[#323233] rounded-[20px] p-[20px] flex flex-col items-center gap-2 mt-[25px]">
               <img src={tokenMain} alt="" />
               <p className="text-[22px] font-bold lg:text-center text-[#fff]">
-                Input token audit to see informations
+               {/* {data.result[0]} */}
               </p>
             </div>
           </div>

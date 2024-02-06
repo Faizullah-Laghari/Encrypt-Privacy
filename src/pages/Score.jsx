@@ -52,7 +52,7 @@ export const Score = () => {
                 </div>
               </div>
             </nav>
-          </header>
+   </header>
           <div className="flex items-center w-[603px] h-[50px] bg-[#323233] px-[15px] rounded-[15px] mt-[25px] gap-[10px] md:w-full">
             <img src={search} alt="" />
             <input

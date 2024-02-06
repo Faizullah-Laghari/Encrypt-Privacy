@@ -3,6 +3,7 @@ import { Aside } from "../components/Aside";
 import notify from "../assets/img/common/notify.svg";
 import avatar from "../assets/img/common/avatar.svg";
 import arrow from "../assets/img/common/arrow.svg";
+import Apis from "../assets/js/Apis";
 
 export const LiveMonitor = () => {
   return (
@@ -57,7 +58,8 @@ export const LiveMonitor = () => {
             <div class="flex items-center justify-between mb-[15px]">
               <h1 class="text-[24px] font-bold text-[#fff]">Markets</h1>
             </div>
-            <div className="overflow-auto">
+            <Apis/>
+            {/* <div className="overflow-auto">
               <table class="w-full min-w-[1000px]">
                 <thead class="bg-[#19191A]">
                   <tr>
@@ -309,7 +311,7 @@ export const LiveMonitor = () => {
                   </tr>
                 </tbody>
               </table>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

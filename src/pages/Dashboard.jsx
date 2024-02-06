@@ -10,7 +10,11 @@ import dollar from "../assets/img/bounty/dollar.svg";
 import eye from "../assets/img/dashboard/eye.svg";
 import chart from "../assets/img/dashboard/chart.svg";
 import score from "../assets/img/dashboard/score.svg";
-import Chart from "react-apexcharts";
+import CryptoChart from "../assets/js/chart-dashboard";
+import LightweightChartComponent from '../assets/js/LightweightChartComponent';
+import ChartComponent from "../assets/js/ChartComponent";
+import Apis from "../assets/js/Apis";
+// import Chart from "react-apexcharts";
 export const Dashboard = () => {
   return (
     <section className="flex gap-[30px] lg:block">
@@ -63,7 +67,7 @@ export const Dashboard = () => {
             </nav>
           </header>
 
-          <div class="grid grid-cols-5 gap-2 mt-[25px] lg:grid-cols-3 md:flex md:flex-col">
+          {/* <div class="grid grid-cols-5 gap-2 mt-[25px] lg:grid-cols-3 md:flex md:flex-col">
             <div class="bg-[#323233] p-[15px] rounded-[30px]">
               <div class="flex items-center justify-between">
                 <h1 class="text-[30px] text-[#fff] font-bold">2</h1>
@@ -109,16 +113,19 @@ export const Dashboard = () => {
                 Liquidity
               </p>
             </div>
-          </div>
-          <div class="grid grid-cols-[1fr_366px] gap-[25px] mt-[25px] lg:block sm:!hidden">
+          </div> */}
+          <div class="grid grid-cols-[1fr_366px] gap-[25px] mt-[25px] h-[630px] lg:block sm:!hidden">
             <div class="bg-[#323233] p-[25px] rounded-[30px] lg:mb-5">
+              
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-[15px]">
                   <h1 class="text-[24px] font-bold text-[#fff]">
                     Live Monitoring
                   </h1>
                 </div>
-                <div class="flex items-center bg-[#000207] p-[5px] rounded-[10px] gap-[5px] lg:hidden">
+              </div>
+
+                {/* <div class="flex items-center bg-[#000207] p-[5px] rounded-[10px] gap-[5px] lg:hidden">
                   <a
                     href="./token-overview.html"
                     class="font-montserrat text-[16px] text-[#7F8083] bg-[#323233] rounded-[5px] w-[116px] h-[30px] flex items-center justify-center"
@@ -137,9 +144,7 @@ export const Dashboard = () => {
                   >
                     Yearly
                   </a>
-                </div>
-              </div>
-
+                </div> 
               <div class="flex items-center gap-5 mt-[10px]">
                 <div class="flex items-center gap-[10px]">
                   <span class="w-[10px] h-[10px] bg-[#0FC06B] rounded-full block"></span>
@@ -149,10 +154,12 @@ export const Dashboard = () => {
                   <span class="w-[10px] h-[10px] bg-[#EA6130] rounded-full block"></span>
                   <p class="text-[#fff] text-[16px] font-montserrat">Down</p>
                 </div>
-              </div>
+              </div> */}
 
-              <div class="bg-[#000207]  w-full p-[5px] pt-[15px] rounded-[20px] mt-5">
-                <Chart
+              <div class="bg-[#000207]  w-full rounded-[20px] mt-5"> 
+
+              <CryptoChart></CryptoChart>
+             {/* <Chart
                   options={{
                     chart: {
                       type: "area",
@@ -231,11 +238,12 @@ export const Dashboard = () => {
                     },
                   ]}
                   type="area"
-                />
-              </div>
+                /> 
+              </div>  */}
+            </div>
             </div>
             <div class="bg-[#323233] flex flex-col p-[25px] rounded-[30px]">
-              <div class="bg-[#19191A] p-[15px] rounded-[30px]">
+              {/* <div class="bg-[#19191A] p-[15px] rounded-[30px]">
                 <div class="flex items-center justify-between">
                   <h1 class="text-[20px] text-[#7F8083] font-montserrat font-semibold">
                     Security Score
@@ -246,8 +254,19 @@ export const Dashboard = () => {
                 <p class="text-[20px] font-montserrat text-[#7F8083]">
                   Percentile Top 10%
                 </p>
+              </div> */}
+              <div class="rounded-md mb-5">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-[15px]  mb-5">
+                  <h1 class="text-[24px] font-bold text-[#fff]">
+                  Series compare
+                  </h1>
+                </div>
               </div>
-              <div class="flex-1 mt-5">
+              <LightweightChartComponent></LightweightChartComponent>
+              </div>
+              
+              {/* <div class="flex-1 mt-5">
                 <div class="-translate-x-9 lg:hidden">
                   <Chart
                     options={{
@@ -318,46 +337,57 @@ export const Dashboard = () => {
                     width={390}
                   />
                 </div>
-              </div>
-              <div class="flex items-center justify-center mt-5">
+               </div> 
+               <div class="flex items-center justify-center mt-5">
                 <button class="text-[18px] font-bold w-[132px] h-[50px] rounded-[15px] text-[#fff] btn-gradient">
                   View More
                 </button>
-              </div>
+              </div>  */}
+             
             </div>
           </div>
-          <div class="bg-[#323233] p-[25px] rounded-[30px] mt-[25px]">
-            <div class="flex items-center justify-between mb-[15px]">
-              <h1 class="text-[24px] font-bold text-[#fff]">
-                Table Heading Live Monitoring
+          <div className="bg-[#323233] p-[25px] rounded-[30px] mt-[25px]">
+            <div  className="flex items-center justify-center mb-[15px]">
+              <h1  className="text-[24px] text-center font-bold text-[#fff]">
+                Live Monitoring
               </h1>
             </div>
             <div className="overflow-auto">
-              <table class="w-full min-w-[1000px]">
-                <thead class="bg-[#19191A]">
+              <table  className="w-full min-w-[1200px]">
+                {/* <thead class="bg-[#19191A]">
                   <tr>
                     <td class="font-montserrat text-[#fff] font-medium uppercase p-[15px]">
-                      TOKEN
+                      #
+                    </td>
+                    <td class="font-montserrat text-[#fff] font-medium uppercase p-[15px]">
+                      Coin
                     </td>
                     <td class="font-montserrat text-[#fff] font-medium uppercase p-[15px]">
                       PRICE
                     </td>
                     <td class="font-montserrat text-[#fff] font-medium uppercase p-[15px]">
-                      CHANGE
+                      1h
                     </td>
                     <td class="font-montserrat text-[#fff] font-medium uppercase p-[15px]">
-                      LIQUIDITY
+                      24h
                     </td>
                     <td class="font-montserrat text-[#fff] font-medium uppercase p-[15px]">
-                      CREATED
+                     7d
                     </td>
                     <td class="font-montserrat text-[#fff] font-medium uppercase p-[15px]">
-                      AUDIT
+                     24h Volume
+                    </td>
+                    <td class="font-montserrat text-[#fff] font-medium uppercase p-[15px]">
+                     Market Cap
+                    </td>
+                    <td class="font-montserrat text-[#fff] font-medium uppercase p-[15px]">
+                     Last 7 Days
                     </td>
                   </tr>
-                </thead>
+                </thead> */}
                 <tbody>
-                  <tr class="border-b-[1px] border-b-[#212224]">
+                  <Apis></Apis>
+                  {/* <tr class="border-b-[1px] border-b-[#212224]">
                     <td class="font-montserrat text-[#fff] font-medium uppercase p-[15px]">
                       Bitcoin (BTC)
                     </td>
@@ -581,35 +611,35 @@ export const Dashboard = () => {
                         View
                       </a>
                     </td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="grid grid-cols-3 gap-[25px] mt-[25px] lg:grid-cols-1">
-            <div class="bg-[#323233] p-[25px] rounded-[30px]">
-              <div class="flex items-center justify-between mb-[25px]">
-                <div class="flex items-center gap-[10px]">
+          <div  className="grid grid-cols-3 gap-[25px] mt-[25px] lg:grid-cols-1">
+            <div  className="bg-[#323233] p-[25px] rounded-[30px]">
+              <div  className="flex items-center justify-between mb-[25px]">
+                <div  className="flex items-center gap-[10px]">
                   <img src={dollar} alt="" />
-                  <h1 class="text-[20px] font-bold text-[#fff]">WEBMIX</h1>
+                  <h1  className="text-[20px] font-bold text-[#fff]">WEBMIX</h1>
                 </div>
-                <p class="font-montserrat text-[16px] font-medium px-[10px] py-[6px] bg-[#5D5E60] rounded-[5px] text-[#fff]">
+                <p  className="font-montserrat text-[16px] font-medium px-[10px] py-[6px] bg-[#5D5E60] rounded-[5px] text-[#fff]">
                   91.92
                 </p>
               </div>
-              <div class="flex items-end justify-between">
+              <div  className="flex items-end justify-between">
                 <div>
-                  <h2 class="text-[16px] font-medium text-[#fff] font-montserrat">
+                  <h2  className="text-[16px] font-medium text-[#fff] font-montserrat">
                     Main Balance
                   </h2>
-                  <h1 class="text-[36px] font-bold text-[#fff] sm:text-[25px]">
+                  <h1  className="text-[36px] font-bold text-[#fff] sm:text-[25px]">
                     $100,000
                   </h1>
-                  <p class="text-[16px] font-medium text-[#7F8083] font-montserrat">
+                  <p  className="text-[16px] font-medium text-[#7F8083] font-montserrat">
                     13 December 2023
                   </p>
                 </div>
-                <button class="text-[16px] font-montserrat font-normal w-[103px] h-[46px] rounded-[15px] text-[#fff] btn-gradient">
+                <button  className="text-[16px] font-montserrat font-normal w-[103px] h-[46px] rounded-[15px] text-[#fff] btn-gradient">
                   Assets
                 </button>
               </div>

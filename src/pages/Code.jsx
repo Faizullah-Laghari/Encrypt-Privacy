@@ -1,10 +1,42 @@
-import React from "react";
+import React ,{useState} from "react";
 import { Aside } from "../components/Aside";
 import notify from "../assets/img/common/notify.svg";
 import avatar from "../assets/img/common/avatar.svg";
 import arrow from "../assets/img/common/arrow.svg";
+import axios from "axios";
+
+
 
 export const Code = () => {
+
+  const [code, setCode] = useState('');
+  const getCodeAudit = async () => {
+    if (!code) {
+        console.log("No code provided");
+        return;
+    }
+
+    try {
+        const response = await axios.post('https://api.openai.com/v1/completions', 
+        {
+          model: "gpt-3.5-turbo-0613",
+            prompt: 'Hello',
+            max_tokens: 100
+        },
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer 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`
+            }
+        });
+
+        console.log(response.data);
+    } catch (error) {
+        console.error("Error calling OpenAI API", error);
+    }
+};
+
+
   return (
     <section className="flex gap-[30px]">
       <Aside active={3} />
@@ -57,12 +89,14 @@ export const Code = () => {
               <h1 className="text-[24px] font-bold text-[#fff]">
                 Contract code
               </h1>
-              <input
+              <textarea
                 type="text"
+                value={code}
+                onChange={(e)=>{setCode(e.target.value)}}
                 placeholder="Contract code"
-                className="font-montserrat text-[#fff] text-[16px] font-medium px-[15px] w-full h-[50px] rounded-[10px] bg-[#19191A] mt-[20px] mb-[15px]"
+                className="font-montserrat text-[#fff] text-[16px] font-medium px-[15px] w-full h-[87%] resize-none rounded-[10px] bg-[#19191A] mt-[20px] mb-[15px]"
               />
-              <ul>
+              {/* <ul>
                 <li className="text-[16px] font-montserrat font-normal flex items-center gap-[15px] px-[15px] text-[#fff] py-[15px] border-b-[1px] border-b-[#212224]">
                   <p>1</p>
                   <p>*</p>
@@ -169,12 +203,12 @@ export const Code = () => {
                     </span>
                   </p>
                 </li>
-              </ul>
+              </ul> */}
             </div>
 
             <div className="bg-[#323233] rounded-[20px] p-[20px] flex flex-col">
               <h1 className="text-[24px] font-bold text-[#fff]">Findings</h1>
-              <button className="w-full text-[18px] text-[#fff] font-bold h-[53px] bg-[#19191A] rounded-[10px] my-5">
+              <button onClick={getCodeAudit} className="w-full text-[18px] text-[#fff] font-bold h-[53px] bg-[#19191A] rounded-[10px] my-5">
                 Audit your code
               </button>
               <div className="bg-[#19191A] p-[20px] rounded-lg flex-1">

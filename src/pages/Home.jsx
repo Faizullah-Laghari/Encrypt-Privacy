@@ -23,6 +23,8 @@ import btc from "../assets/img/dashboard/btc.svg";
 import eth from "../assets/img/dashboard/eth.svg";
 import ada from "../assets/img/dashboard/ada.svg";
 import sql from "../assets/img/dashboard/sql.svg";
+import CryptoPriceTracker from "../assets/js/cryptoTracker";
+import CryptoConverter from "../assets/js/CryptoConverter";
 
 export const Home = () => {
   return (
@@ -163,7 +165,7 @@ export const Home = () => {
 
           <div className="grid grid-cols-3 gap-[25px] mt-10 lg:grid-cols-1">
             <div className="bg-[#323233] p-[25px] rounded-[30px] col-span-2 lg:col-span-1">
-              <div className="flex items-center justify-between mb-[15px]">
+              {/* <div className="flex items-center justify-between mb-[15px]">
                 <h1 className="text-[24px] font-bold text-[#fff]">Markets</h1>
                 <div className="flex items-center bg-[#19191A] p-[5px] rounded-[10px] gap-[5px] lgmed:hidden">
                   <button className="font-montserrat text-[16px] text-[#fff] rounded-[5px] w-[116px] h-[30px] btn-gradient">
@@ -179,8 +181,9 @@ export const Home = () => {
                     Top Gainers
                   </button>
                 </div>
-              </div>
-              <div className="overflow-auto">
+              </div> */}
+              <CryptoPriceTracker/>
+              {/* <div className="overflow-auto">
                 <table className="w-full min-w-[700px]">
                   <thead className="bg-[#19191A]">
                     <tr>
@@ -297,19 +300,20 @@ export const Home = () => {
                     </tr>
                   </tbody>
                 </table>
-              </div>
+              </div> */}
             </div>
             <div className="flex flex-col">
               <h1 className="text-[24px] font-bold text-[#fff] mb-[20px]">
                 Recommended for you
               </h1>
               <div className="bg-[#323233] rounded-xl p-[25px] flex-1">
-                <div className="flex flex-col justify-center items-start h-full">
-                  <img src={recomendedTable} alt="" />
+              <div className="flex flex-col justify-center items-start">
                   <p className="w-[252px] text-[20px] font-medium text-[#fff] mx-auto mt-[40px] mb-[40px]">
                     Convert The easiest way to trade crypto at 0 fees
                   </p>
                 </div>
+                <CryptoConverter/>
+                
               </div>
             </div>
           </div>
