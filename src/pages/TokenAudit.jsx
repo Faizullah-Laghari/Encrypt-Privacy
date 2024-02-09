@@ -10,6 +10,8 @@ import arrowToken from "../assets/img/token/arrow.svg";
 import lock from "../assets/img/token/lock.svg";
 import tokenMain from "../assets/img/token/token-main.svg";
 import { useNavigate } from "react-router-dom";
+import MyForm from "../components/Api";
+import ApiData from "../components/ApiData";
 export const TokenAudit = () => {
     const [data, setData] = useState('') 
   const [address, setAddress] = useState(''); // State to store textarea value
@@ -82,7 +84,7 @@ export const TokenAudit = () => {
           <div className="gap-[25px] mt-[25px]">
             <div className="bg-[#323233] rounded-[20px] p-[20px]">
               <div className="flex items-center justify-between">
-                <h1 className="text-[24px]  font-bold text-[#fff]">
+                <h1 className="text-[24px]  font-bold text-[#fff] pt-0">
                   Token Audit
                 </h1>
                 <img src={arrowToken} className="rotate-180" alt="" />
@@ -91,11 +93,12 @@ export const TokenAudit = () => {
                 <div className="bg-[#5D5E60] p-[20px] rounded-[20px]">
                   <div className="flex items-center gap-2">
                     <img src={token1} alt="" />
-                    <h1 className="text-[24px]  sm:text-[18px] font-bold text-[#fff]">
+                    <h1 className="text-[24px]  sm:text-[18px] font-bold text-[#fff] pt-0">
                       Token Auditor
                     </h1>
                   </div>
-                  <div className="p-[25px] bg-[#323233] rounded-[10px] mt-[15px] h-[286px] flex flex-col lg:h-[unset]">
+                  <MyForm></MyForm>
+                  {/* <div className="p-[25px] bg-[#323233] rounded-[10px] mt-[15px] h-[286px] flex flex-col lg:h-[unset]">
                     <textarea
                       className="flex-1 bg-[transparent] resize-none text-[#7F8083] font-montserrat text-[16px] outline-none"
                       placeholder="Enter contact address..."
@@ -110,7 +113,7 @@ export const TokenAudit = () => {
                     >
                       Submit
                     </button>
-                  </div>
+                  </div> */}
                 </div>
                 {/* <div className="bg-[#5D5E60] p-[20px] rounded-[20px]">
                   <div className="flex items-center gap-2">
@@ -137,12 +140,10 @@ export const TokenAudit = () => {
                 </div> */}
               </div>
             </div>
-            <div className="bg-[#323233] rounded-[20px] p-[20px] flex flex-col items-center gap-2 mt-[25px]">
+            {/* <div className="bg-[#323233] rounded-[20px] p-[20px] flex flex-col items-center gap-2 mt-[25px]">
               <img src={tokenMain} alt="" />
-              <p className="text-[22px] font-bold lg:text-center text-[#fff]">
-               {/* {data.result[0]} */}
-              </p>
-            </div>
+              <p className="text-[22px] font-bold lg:text-center text-[#fff]">Put token audit to see information</p>
+            </div>            */}
           </div>
         </div>
       </section>

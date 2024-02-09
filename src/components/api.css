@@ -1,0 +1,19 @@
+
+
+.w-6.w-6{
+    background: linear-gradient( 97deg, #f3546e 0%, #b254fb 55.41%, #6482ff 94.35% );
+    border-radius: 50%;
+    font-size: 50px;
+}
+
+.progress{
+    background: linear-gradient( 97deg, #f3546e 0%, #b254fb 55.41%, #6482ff 94.35% );
+}
+
+@media (min-width:1024px){
+.response-data {
+    display:grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap:20px;
+}
+}
